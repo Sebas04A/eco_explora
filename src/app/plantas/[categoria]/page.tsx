@@ -4,12 +4,6 @@ import { categoriaNombreaID, plantasPrueba } from '@/app/datosPrueba'
 import ListPlantas from '@/app/ListPlantas'
 import { Planta } from '@/app/types/types'
 
-const cateogoriaIDaNombre: Record<number, string> = {
-    1: 'Medicinales',
-    2: 'Ornamentales',
-    3: 'Frutales',
-    4: 'Aromáticas',
-}
 export default async function PlantasPage(props: { params: Promise<{ categoria: string }> }) {
     const categoria: string = decodeURIComponent((await props.params).categoria.replace(/-/g, ' '))
     const plantas: Planta[] = plantasPrueba

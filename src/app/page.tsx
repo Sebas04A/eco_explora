@@ -1,7 +1,6 @@
-import Image from 'next/image'
 import SeccionPlantas from './SeccionPlantas'
 import { Planta } from './types/types'
-import { categoriaIDaNombre, categoriaNombreaID, plantasPrueba } from './datosPrueba'
+import { categoriaIDaNombre, plantasPrueba } from './datosPrueba'
 
 export default async function Home() {
     // console.log('API URL:', process.env.NEXT_PUBLIC_API_URL)
@@ -15,10 +14,10 @@ export default async function Home() {
     //     // throw new Error('Error al cargar plantas')
     //     error = 'Error al cargar plantas'
     // }
-    let cargado = true
+    const cargado = true
 
     const plantas: Planta[] = plantasPrueba
-    let plantasPorCategoria: Record<string, Planta[]> = {}
+    const plantasPorCategoria: Record<string, Planta[]> = {}
     plantas.forEach(planta => {
         if (!plantasPorCategoria[planta.CategoriaID]) {
             plantasPorCategoria[planta.CategoriaID] = []
@@ -26,7 +25,7 @@ export default async function Home() {
         plantasPorCategoria[planta.CategoriaID].push(planta)
     })
     console.log('Plantas por categoría:', plantasPorCategoria)
-    let error = null
+    const error = null
     console.log('Plantas:', plantas)
     // const plantasOrnamentales: Planta[] = plantas.filter(
     //     planta => planta.categoria === 'ornamentales'
