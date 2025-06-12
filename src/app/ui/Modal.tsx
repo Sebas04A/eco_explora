@@ -26,20 +26,26 @@ function Modal({ planta, cerrarModal }: { planta: Planta; cerrarModal: () => voi
                     </button>
                 </div>
 
-                {planta.ImagenURL && (
-                    <img
-                        src={planta.ImagenURL}
-                        alt={planta.NombreComun}
-                        className='w-full h-48 object-cover rounded-md mb-4'
-                    />
-                )}
-
-                <div className='space-y-3'>
-                    {planta.NombreCientifico && (
-                        <p className='text-gray-600 italic'>{planta.NombreCientifico}</p>
+                <div className='m-2'>
+                    {planta.ImagenURL && (
+                        <img
+                            src={planta.ImagenURL}
+                            alt={planta.NombreComun}
+                            className='w-full h-48 object-cover rounded-md mb-4'
+                        />
                     )}
 
-                    {planta.Descripcion && <p className='text-gray-700'>{planta.Descripcion}</p>}
+                    <div className=''>
+                        <div className='space-y-3'>
+                            {planta.NombreCientifico && (
+                                <p className='text-gray-600 italic'>{planta.NombreCientifico}</p>
+                            )}
+
+                            {planta.Descripcion && (
+                                <p className='text-gray-700 ms-4'>{planta.Descripcion}</p>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

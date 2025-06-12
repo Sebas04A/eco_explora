@@ -12,16 +12,23 @@ function SeccionRecetas({
     seleccionarReceta: (receta: Receta) => void
 }) {
     return (
-        <section className='recetas-seccion'>
-            <h2 className='font-bold text-xl'>🌿 {categoria}</h2>
-            <div className='receta-grid m-2 py-4'>
+        <section className='recetas-seccion shadow-lg rounded-lg p-4 m-4 bg-white'>
+            <h2 className='font-bold text-xl text-center'>🌿 {categoria}</h2>
+            <div className='flex gap-4 m-2 py-4 justify-center'>
                 {recetas.map(receta => (
                     <div
-                        className='receta-card'
+                        className='receta-card max-w-sm p-4  rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer'
                         key={receta.RecetaID}
                         onClick={() => seleccionarReceta(receta)}
                     >
                         <h3>{receta.Nombre}</h3>
+                        <div>
+                            <p>
+                                {receta.Descripcion.length > 100
+                                    ? `${receta.Descripcion.substring(0, 100)}...`
+                                    : receta.Descripcion}
+                            </p>
+                        </div>
                     </div>
                 ))}
             </div>

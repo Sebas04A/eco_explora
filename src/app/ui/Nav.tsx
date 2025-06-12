@@ -20,7 +20,7 @@ export default function Navbar() {
     }, [])
 
     return (
-        <nav className='bg-white shadow'>
+        <nav className='bg-green-600 shadow '>
             <ul className='flex space-x-4 p-4 w-full justify-center items-center '>
                 <li>
                     <Link href='/'>
@@ -53,16 +53,20 @@ export default function Navbar() {
                     </button>
 
                     <ul
-                        className={`flex absolute left-0 mt-2  bg-white border rounded shadow-lg transition-all duration-200 origin-top  text-green-600 ${
+                        className={`flex flex-col absolute left-0 mt-2  bg-white border rounded shadow-lg transition-all duration-200 origin-top  text-green-600 ${
                             menuOpen
                                 ? 'scale-y-100 opacity-100'
                                 : 'scale-y-0 opacity-0 pointer-events-none'
                         }`}
                     >
                         {categorias.map(categoria => (
-                            <li key={categoria} className='flex-1'>
+                            <li
+                                key={categoria}
+                                className='flex-1'
+                                onClick={() => setMenuOpen(false)}
+                            >
                                 <Link href={`/plantas/${categoria}`}>
-                                    <div className='block px-4 py-2 text-green-600 hover:bg-green-100 border-b border-gray-200'>
+                                    <div className=' py-2  text-green-600 hover:bg-green-100 border-b border-gray-200'>
                                         {categoria}
                                     </div>
                                 </Link>

@@ -32,21 +32,25 @@ export default async function Home() {
     // )
     return (
         <>
-            <section className='welcome'>
-                <h1>Bienvenido a EcoExplora</h1>
+            <section className='welcome '>
+                <h1 className='text-shadow text-4xl font-bold text-green-800 px-4 py-6 rounded-xl text-center'>
+                    Bienvenido a EcoExplora
+                </h1>
             </section>
-            <section className='intro-ecoexplora px-6 py-8 bg-green-50 text-center'>
-                <h2 className='text-2xl text-green-700 mb-4'>¿Qué es EcoExplora?</h2>
-                <p className='text-lg leading-relaxed text-gray-700'>
-                    <strong>EcoExplora</strong> es un repositorio digital de plantas clasificadas en
-                    categorías como medicinales, ornamentales, frutales y aromáticas. Este sitio
-                    proporciona información relevante y accesible sobre sus usos, beneficios,
-                    hábitats y recetas naturales asociadas.
-                    <br />
-                    <br />
-                    Nuestra misión es fomentar el conocimiento botánico y promover el uso
-                    responsable y sostenible de las plantas en la vida diaria.
-                </p>
+            <section className='intro-ecoexplora px-6 py-8 bg-green-50 text-center max'>
+                <div className='max-w-3xl mx-auto'>
+                    <h2 className='text-2xl text-green-700 mb-4'>¿Qué es EcoExplora?</h2>
+                    <p className='text-lg leading-relaxed text-gray-700'>
+                        <strong>EcoExplora</strong> es un repositorio digital de plantas
+                        clasificadas en categorías como medicinales, ornamentales, frutales y
+                        aromáticas. Este sitio proporciona información relevante y accesible sobre
+                        sus usos, beneficios, hábitats y recetas naturales asociadas.
+                        <br />
+                        <br />
+                        Nuestra misión es fomentar el conocimiento botánico y promover el uso
+                        responsable y sostenible de las plantas en la vida diaria.
+                    </p>
+                </div>
             </section>
             {error ? (
                 <div className='text-red-500 text-center mt-8'>
@@ -56,7 +60,7 @@ export default async function Home() {
             ) : (
                 <>
                     {cargado ? (
-                        <div className='flex flex-col gap-4 p-8 bg-white rounded-lg shadow-md'>
+                        <div className='flex flex-col gap-4 p-8  bg-white rounded-lg shadow-md'>
                             {Object.entries(plantasPorCategoria).map(([categoriaID, plantas]) => (
                                 <SeccionPlantas
                                     titulo={categoriaIDaNombre[parseInt(categoriaID)]}

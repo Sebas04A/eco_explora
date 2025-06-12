@@ -16,8 +16,8 @@ export default async function PlantasPage(props: { params: Promise<{ categoria: 
     console.log('Plantas filtradas:', plantasActuales)
     return (
         <>
-            <section className={`welcome welcome-${categoria.toLowerCase()}`}>
-                <h1>Plantas {categoria}</h1>
+            <section className={`welcome welcome-${categoria.toLowerCase()} `}>
+                <h1 className='py-6 px-10 rounded-xl '>Plantas {categoria}</h1>
             </section>
             <div className='p-8'>
                 <ListPlantas plantas={plantasActuales} />

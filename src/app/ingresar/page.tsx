@@ -85,8 +85,8 @@ const PlantasPage: React.FC = () => {
     }
 
     return (
-        <div className='container mx-auto p-4 my-4 sm:my-8'>
-            <h1 className='text-2xl font-bold mb-4'>Agregar Planta</h1>
+        <div className='container mx-auto p-4 my-4 sm:my-8 rounded-lg shadow-lg '>
+            <h1 className='text-2xl font-bold my-6 p-4 text-green-800'>Agregar Planta</h1>
             <form onSubmit={handleSubmit} className='space-y-6 w-full mx-6 max-w-xl'>
                 <div className='flex flex-col md:flex-row md:items-center md:space-x-6'>
                     <div className='flex-shrink-0 mb-4 md:mb-0'>
@@ -121,7 +121,7 @@ const PlantasPage: React.FC = () => {
                             name='NombreComun'
                             value={newPlant.NombreComun}
                             onChange={handleChange}
-                            className='border rounded w-full p-2 mt-1'
+                            className='border rounded w-full p-2 mt-1 '
                             required
                         />
                     </div>
@@ -137,11 +137,14 @@ const PlantasPage: React.FC = () => {
                         required
                     />
                 </div>
-                <div className='flex gap-4 items-center justify-center bg-gray-100 p-4 rounded'>
+                <div
+                    className='flex gap-4 items-center justify-center bg-gray-100 p-4 rounded hover:bg-gray-200 transition-colors'
+                    onClick={handleGetLocation}
+                >
                     <label className='font-medium'>Subir Ubicacion:</label>
                     <button
                         type='button'
-                        onClick={handleGetLocation}
+                        // onClick={handleGetLocation}
                         className='flex items-center bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded'
                     >
                         {/* <MapPin className='w-5 h-5 mr-2' /> */}
@@ -150,7 +153,7 @@ const PlantasPage: React.FC = () => {
                 </div>
 
                 {location && (
-                    <p className='text-sm text-gray-700'>
+                    <p className='text-sm text-gray-700 text-center'>
                         Latitud: {location.lat.toFixed(6)}, Longitud: {location.lng.toFixed(6)}
                     </p>
                 )}
@@ -209,7 +212,7 @@ const PlantasPage: React.FC = () => {
 
                 <button
                     type='submit'
-                    className='bg-blue-500 hover:bg-blue-600 text-white px-6 py-4 rounded w-full'
+                    className='bg-green-700 hover:bg-green-600 text-white px-6 py-4 rounded w-full'
                 >
                     Guardar Planta
                 </button>
