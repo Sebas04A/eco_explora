@@ -5,18 +5,19 @@ import Link from 'next/link'
 const categorias = ['Medicinales', 'Ornamentales', 'Frutales', 'Aromáticas']
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
-    const dropdownRef = useRef(null)
+    const dropdownRef = useRef<HTMLLIElement>(null)
 
     // Cerrar el menú si se hace clic fuera
     useEffect(() => {
-        function handleClickOutside(event: any) {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        function handleClickOutside(event: MouseEvent) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
                 setMenuOpen(false)
             }
         }
+
         document.addEventListener('mousedown', handleClickOutside)
         return () => document.removeEventListener('mousedown', handleClickOutside)
-    }, [dropdownRef])
+    }, [])
 
     return (
         <nav className='bg-white shadow'>
