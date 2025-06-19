@@ -2,7 +2,6 @@
 
 import { categoriaNombreaID, plantasPrueba } from '@/app/datosPrueba'
 import ListPlantas from '@/app/ListPlantas'
-import Mapa from '@/app/mapa/Mapa'
 import { Planta } from '@/app/types/types'
 
 export default async function PlantasPage(props: { params: Promise<{ categoria: string }> }) {

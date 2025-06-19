@@ -8,15 +8,15 @@ const styleLight = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.jso
 const plantas = [
     {
         nombre: 'Achicoria',
-        coords: [-79, -1.046],
+        coords: [-79, -1.046] as [number, number],
     },
     {
         nombre: 'Ortiga',
-        coords: [-78.8, -1.09],
+        coords: [-78.8, -1.09] as [number, number],
     },
     {
         nombre: 'Hierba Luisa',
-        coords: [-78.882, -1.0463],
+        coords: [-78.882, -1.0463] as [number, number],
     },
 ]
 const Map = () => {
