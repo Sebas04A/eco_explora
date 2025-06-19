@@ -44,7 +44,54 @@ function Modal({ planta, cerrarModal }: { planta: Planta; cerrarModal: () => voi
                             {planta.Descripcion && (
                                 <p className='text-gray-700 ms-4'>{planta.Descripcion}</p>
                             )}
+                            {planta.ZonaID && (
+                                <p className='text-gray-600'>
+                                    <strong>Ubicación:</strong> {planta.ZonaID}
+                                </p>
+                            )}
                         </div>
+                        {planta.valorNutricional && (
+                            <div className='mt-4'>
+                                <h3 className='text-lg font-semibold text-green-700'>
+                                    Valor Nutricional
+                                </h3>
+                                <div className='mt-2 border border-green-200 rounded-md overflow-hidden'>
+                                    <table className='min-w-full'>
+                                        <thead className='bg-green-100'>
+                                            <tr>
+                                                <th className='py-2 px-4 text-left text-sm font-medium text-green-800'>
+                                                    Nutriente
+                                                </th>
+                                                <th className='py-2 px-4 text-left text-sm font-medium text-green-800'>
+                                                    Cantidad
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className='divide-y divide-green-100'>
+                                            {Object.entries(planta.valorNutricional).map(
+                                                ([nutriente, cantidad], index) => (
+                                                    <tr
+                                                        key={index}
+                                                        className={
+                                                            index % 2 === 0
+                                                                ? 'bg-white'
+                                                                : 'bg-green-50'
+                                                        }
+                                                    >
+                                                        <td className='py-2 px-4 text-sm text-gray-700'>
+                                                            {nutriente}
+                                                        </td>
+                                                        <td className='py-2 px-4 text-sm text-gray-700'>
+                                                            {cantidad}
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            )}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

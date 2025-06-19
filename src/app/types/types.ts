@@ -1,3 +1,25 @@
+// CREATE TABLE ValorNutricional (
+//     ValorNutricionalID INT PRIMARY KEY IDENTITY,
+//     PlantaID INT FOREIGN KEY REFERENCES Planta(PlantaID),
+//     Calorias DECIMAL(10,2),
+//     Proteinas DECIMAL(10,2),
+//     Grasas DECIMAL(10,2),
+//     Carbohidratos DECIMAL(10,2),
+//     Fibra DECIMAL(10,2),
+//     Vitaminas NVARCHAR(255)
+// );
+
+export interface ValorNutricional {
+    ValorNutricionalID: number
+    PlantaID: number
+    Calorias: number
+    Proteinas: number
+    Grasas: number
+    Carbohidratos: number
+    Fibra: number
+    Vitaminas: string
+}
+
 // CREATE TABLE Planta (
 //     PlantaID INT PRIMARY KEY IDENTITY,
 //     NombreComun NVARCHAR(100),
@@ -21,6 +43,7 @@ export interface Planta {
     FechaRegistro: Date
     UsuarioID: number
     VecesConsumida: number
+    valorNutricional?: ValorNutricional
 }
 
 // CREATE TABLE Receta (

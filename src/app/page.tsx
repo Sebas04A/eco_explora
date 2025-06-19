@@ -1,6 +1,7 @@
 import SeccionPlantas from './SeccionPlantas'
 import { Planta } from './types/types'
 import { categoriaIDaNombre, plantasPrueba } from './datosPrueba'
+import Mapa from './mapa/Mapa'
 
 export default async function Home() {
     // console.log('API URL:', process.env.NEXT_PUBLIC_API_URL)
@@ -51,6 +52,9 @@ export default async function Home() {
                         responsable y sostenible de las plantas en la vida diaria.
                     </p>
                 </div>
+            </section>
+            <section className='p-8 rounded-lg shadow-md mt-8 mx-10 bg-gray-100'>
+                <Mapa />
             </section>
             {error ? (
                 <div className='text-red-500 text-center mt-8'>
