@@ -10,6 +10,11 @@ function ListPlantas({ plantas }: { plantas: Planta[] }) {
     function cerrarModal() {
         setPlantaSeleccionada(null)
     }
+    function seleccionarPlanta(planta: Planta) {
+        setPlantaSeleccionada(planta)
+        console.log('Planta seleccionada:', planta)
+        location.href = `/planta/${planta.NombreComun}`
+    }
 
     return (
         <>
@@ -18,7 +23,7 @@ function ListPlantas({ plantas }: { plantas: Planta[] }) {
                     <div
                         className='flex flex-col bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 min-w-[200px] max-w-[300px] '
                         key={planta.PlantaID}
-                        onClick={() => setPlantaSeleccionada(planta)}
+                        onClick={() => seleccionarPlanta(planta)}
                     >
                         {/* <img
                             src={planta.Imagen}
