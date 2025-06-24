@@ -1,5 +1,5 @@
 import React from 'react'
-import { Receta } from '../types/types'
+import { Receta } from '../api/types'
 // export interface Receta {
 //     RecetaID: number
 //     Nombre: string
@@ -9,6 +9,9 @@ import { Receta } from '../types/types'
 //     FechaRegistro: Date
 // }
 function ModalReceta({ receta, onClose }: { receta: Receta; onClose: () => void }) {
+    const instrConSaltos = receta.Instrucciones.replace(/\\n/g, '\n')
+    // 2) Divide en líneas
+    // const lineas = conSaltos.split('\n')
     return (
         <div className='fixed inset-0 z-50 flex items-center justify-center overflow-y-auto'>
             <div className='absolute inset-0 bg-black opacity-50' onClick={onClose}></div>
@@ -47,14 +50,17 @@ function ModalReceta({ receta, onClose }: { receta: Receta; onClose: () => void 
 
                     <div>
                         <h3 className='text-lg font-semibold text-green-700'>Instrucciones</h3>
-                        <p className='mt-2 text-gray-700 whitespace-pre-line'>
-                            {receta.Instrucciones}
+                        <p
+                            style={{ whiteSpace: 'pre-line', lineHeight: 1.4 }}
+                            className='mt-2 text-gray-700 whitespace-pre-line'
+                        >
+                            {instrConSaltos}
                         </p>
                     </div>
 
                     <div className='flex flex-wrap gap-2 text-sm text-gray-500'>
                         <p>Fecha: {new Date(receta.FechaRegistro).toLocaleDateString()}</p>
-                        <p>Usuario: {receta.UsuarioID}</p>
+                        <p>Usuario: {receta.Usuario}</p>
                     </div>
                 </div>
 

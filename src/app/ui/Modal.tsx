@@ -1,5 +1,5 @@
 import React from 'react'
-import { Planta } from '../types/types'
+import { Planta } from '../api/types'
 
 function Modal({ planta, cerrarModal }: { planta: Planta; cerrarModal: () => void }) {
     return (
@@ -27,13 +27,13 @@ function Modal({ planta, cerrarModal }: { planta: Planta; cerrarModal: () => voi
                 </div>
 
                 <div className='m-2'>
-                    {planta.ImagenURL && (
+                    {/* {planta.ImagenURL && (
                         <img
                             src={planta.ImagenURL}
                             alt={planta.NombreComun}
                             className='w-full h-48 object-cover rounded-md mb-4'
                         />
-                    )}
+                    )} */}
 
                     <div className=''>
                         <div className='space-y-3'>
@@ -41,16 +41,16 @@ function Modal({ planta, cerrarModal }: { planta: Planta; cerrarModal: () => voi
                                 <p className='text-gray-600 italic'>{planta.NombreCientifico}</p>
                             )}
 
-                            {planta.Descripcion && (
+                            {/* {planta.Descripcion && (
                                 <p className='text-gray-700 ms-4'>{planta.Descripcion}</p>
-                            )}
-                            {planta.ZonaID && (
+                            )} */}
+                            {planta.Zona && (
                                 <p className='text-gray-600'>
-                                    <strong>Ubicación:</strong> {planta.ZonaID}
+                                    <strong>Ubicación:</strong> {planta.Zona}
                                 </p>
                             )}
                         </div>
-                        {planta.valorNutricional && (
+                        {/* {planta.valorNutricional && (
                             <div className='mt-4'>
                                 <h3 className='text-lg font-semibold text-green-700'>
                                     Valor Nutricional
@@ -91,7 +91,7 @@ function Modal({ planta, cerrarModal }: { planta: Planta; cerrarModal: () => voi
                                     </table>
                                 </div>
                             </div>
-                        )}
+                        )} */}
                     </div>
                 </div>
             </div>

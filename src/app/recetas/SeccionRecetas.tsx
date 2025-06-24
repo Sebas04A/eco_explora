@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Receta } from '../types/types'
+import { Receta } from '../api/types'
 
 function SeccionRecetas({
     categoria,

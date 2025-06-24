@@ -1,7 +1,8 @@
 import SeccionPlantas from './SeccionPlantas'
-import { Planta } from './types/types'
 import { categoriaIDaNombre, plantasPrueba } from './datosPrueba'
 import Mapa from './mapa/Mapa'
+import { getPlantas } from './api/plantas'
+import { Planta } from './api/types'
 
 export default async function Home() {
     // console.log('API URL:', process.env.NEXT_PUBLIC_API_URL)
@@ -17,13 +18,13 @@ export default async function Home() {
     // }
     const cargado = true
 
-    const plantas: Planta[] = plantasPrueba
+    const plantas: Planta[] = await getPlantas()
     const plantasPorCategoria: Record<string, Planta[]> = {}
     plantas.forEach(planta => {
-        if (!plantasPorCategoria[planta.CategoriaID]) {
-            plantasPorCategoria[planta.CategoriaID] = []
+        if (!plantasPorCategoria[planta.Categoria]) {
+            plantasPorCategoria[planta.Categoria] = []
         }
-        plantasPorCategoria[planta.CategoriaID].push(planta)
+        plantasPorCategoria[planta.Categoria].push(planta)
     })
     console.log('Plantas por categoría:', plantasPorCategoria)
     const error = null

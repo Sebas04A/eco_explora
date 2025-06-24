@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Receta } from '../types/types'
+import { Receta } from '../api/types'
 import ModalReceta from './ModalReceta'
 import SeccionRecetas from './SeccionRecetas'
 

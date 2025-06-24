@@ -1,18 +1,22 @@
 'use server'
 
+import { getPlantas } from '@/app/api/plantas'
+import { Planta } from '@/app/api/types'
 import { categoriaNombreaID, plantasPrueba } from '@/app/datosPrueba'
 import ListPlantas from '@/app/ListPlantas'
-import { Planta } from '@/app/types/types'
 
 export default async function PlantasPage(props: { params: Promise<{ categoria: string }> }) {
     const categoria: string = decodeURIComponent((await props.params).categoria.replace(/-/g, ' '))
-    const plantas: Planta[] = plantasPrueba
+    const categoriaParam = (await props.params).categoria
+    const plantas: Planta[] = await getPlantas()
 
     const categoriaID = categoriaNombreaID[categoria]
     console.log('Categoría ID:', categoria)
     console.log('Categoría seleccionada:', categoriaID)
 
-    const plantasActuales = plantas.filter(planta => planta.CategoriaID === categoriaID)
+    const plantasActuales = plantas.filter(
+        planta => planta.Categoria === 'Plantas ' + categoriaParam
+    )
     console.log('Plantas filtradas:', plantasActuales)
     return (
         <>
