@@ -2,7 +2,7 @@
 
 import { getPlantas } from '@/app/api/plantas'
 import { Planta } from '@/app/api/types'
-import { categoriaNombreaID, plantasPrueba } from '@/app/datosPrueba'
+import { categoriaNombreaID } from '@/app/datosPrueba'
 import ListPlantas from '@/app/ListPlantas'
 
 export default async function PlantasPage(props: { params: Promise<{ categoria: string }> }) {

@@ -1,6 +1,4 @@
 import SeccionPlantas from './SeccionPlantas'
-import { categoriaIDaNombre, plantasPrueba } from './datosPrueba'
-import Mapa from './mapa/Mapa'
 import { getPlantas } from './api/plantas'
 import { Planta } from './api/types'
 import { getForos } from './api/foro'

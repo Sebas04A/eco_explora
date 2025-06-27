@@ -1,17 +1,16 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 
-import Modal from './ui/Modal'
 import { Planta } from './api/types'
 
 function ListPlantas({ plantas }: { plantas: Planta[] }) {
-    const [plantaSeleccionada, setPlantaSeleccionada] = useState<Planta | null>(null)
+    // const [plantaSeleccionada, setPlantaSeleccionada] = useState<Planta | null>(null)
 
-    function cerrarModal() {
-        setPlantaSeleccionada(null)
-    }
+    // function cerrarModal() {
+    //     setPlantaSeleccionada(null)
+    // }
     function seleccionarPlanta(planta: Planta) {
-        setPlantaSeleccionada(planta)
+        // setPlantaSeleccionada(planta)
         console.log('Planta seleccionada:', planta)
         location.href = `/planta/${planta.NombreComun}`
     }

@@ -1,13 +1,12 @@
 'use client'
 import React from 'react'
 import { Receta } from '../api/types'
-import ModalReceta from './ModalReceta'
 import SeccionRecetas from './SeccionRecetas'
 
 function SecionesRecetas({ secciones }: { secciones: { nombre: string; recetas: Receta[] }[] }) {
-    const [recetaSeleccionada, setRecetaSeleccionada] = React.useState<Receta | null>(null)
+    // const [recetaSeleccionada, setRecetaSeleccionada] = React.useState<Receta | null>(null)
     function seleccionarReceta(receta: Receta | null) {
-        setRecetaSeleccionada(receta)
+        // setRecetaSeleccionada(receta)
         console.log('Receta seleccionada:', receta)
         location.href = `/receta/${receta?.Nombre}`
     }

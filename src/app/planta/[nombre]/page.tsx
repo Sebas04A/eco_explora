@@ -1,5 +1,4 @@
 import React from 'react'
-import { Planta } from '../../api/types'
 import { getPlanta } from '@/app/api/plantas'
 import { PlantaSola } from '@/app/types/types'
 import ListaForo from '@/app/ui/ListaForo'
