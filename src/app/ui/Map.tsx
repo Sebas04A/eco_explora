@@ -3,38 +3,33 @@
 import { useEffect, useRef } from 'react'
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
+import { Foro } from '../types/types'
 const styleLight = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'
 // const styleLight = 'https://demotiles.maplibre.org/style.json' // Estilo de ejemplo de MapLibre
-const plantas = [
-    {
-        nombre: 'Achicoria',
-        coords: [-79, -1.046] as [number, number],
-    },
-    {
-        nombre: 'Ortiga',
-        coords: [-78.8, -1.09] as [number, number],
-    },
-    {
-        nombre: 'Hierba Luisa',
-        coords: [-78.882, -1.0463] as [number, number],
-    },
-]
-const Map = () => {
+
+const Map = ({ plantas }: { plantas: Foro[] }) => {
     const mapContainer = useRef(null)
+    console.log('Plantas recibidas en el mapa:', plantas)
 
     useEffect(() => {
         if (mapContainer.current) {
             const map = new maplibregl.Map({
                 container: mapContainer.current,
                 style: styleLight, // Puedes cambiar el estilo
-                center: [-78.8814, -1.0461], // [longitud, latitud] - Nueva York
+                // center: [-78.8814, -1.0461], // [longitud, latitud] - Nueva York
+                center: [-78.52495, -0.22985],
 
                 zoom: 10,
             })
 
             map.on('load', () => {
                 plantas.forEach(planta => {
-                    const popup = new maplibregl.Popup({ offset: 25 }).setText(planta.nombre)
+                    const longlat: [number, number] = [
+                        Number(planta.Longitud),
+                        Number(planta.Latitud),
+                    ]
+                    console.log('Longitud y latitud de la planta:', longlat)
+                    const popup = new maplibregl.Popup({ offset: 25 }).setText(planta.Planta)
                     const el = document.createElement('div')
                     el.className = 'custom-marker'
                     el.innerHTML = `
@@ -48,12 +43,12 @@ const Map = () => {
             box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
             display: inline-block;
           ">
-            🌿 ${planta.nombre}
+            🌿 ${planta.Planta}
           </div>
         `
 
                     new maplibregl.Marker({ color: '#228B22', element: el }) // verde tipo planta
-                        .setLngLat(planta.coords)
+                        .setLngLat(longlat) // [longitud, latitud]
                         .setPopup(popup)
                         .addTo(map)
                 })

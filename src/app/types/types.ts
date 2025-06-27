@@ -45,6 +45,31 @@ export interface Planta {
     VecesConsumida: number
     valorNutricional?: ValorNutricional
 }
+export interface PlantaSola {
+    PlantaID: number
+    NombreComun: string
+    NombreCientifico: string
+    CategoriaID: number
+    ZonaID: number
+    Descripcion: string
+    ImagenURL: string
+    FechaRegistro: string // ISO date string (puedes usar Date si lo vas a convertir)
+    UsuarioID: number
+    VecesConsumida: number
+    Categoria: string
+    Zona: string
+    UsuarioRegistro: string
+}
+export interface Foro {
+    ForoID: number
+    Comentario: string
+    ImagenURL: string
+    Latitud: string // Puedes cambiar a number si lo conviertes al usarlo
+    Longitud: string // Idem
+    FechaPublicacion: string // ISO string, o Date si lo parseas
+    Usuario: string
+    Planta: string
+}
 
 // CREATE TABLE Receta (
 //     RecetaID INT PRIMARY KEY IDENTITY,

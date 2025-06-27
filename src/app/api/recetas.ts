@@ -1,3 +1,5 @@
+import { Receta } from './types'
+
 export const getRecetas = async () => {
     try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/recetas`)
@@ -10,4 +12,18 @@ export const getRecetas = async () => {
         console.error('Error fetching recetas:', error)
         throw error
     }
+}
+export const getReceta = async (nombre: string) => {
+    const api = `${process.env.NEXT_PUBLIC_API_URL}/recetas/nombre/${encodeURIComponent(nombre)}`
+    const response = await fetch(api)
+    if (!response.ok) {
+        console.error('Error fetching receta:', response.statusText)
+        return null
+    }
+    const receta: Receta = await response.json()
+    if (!receta) {
+        console.error('Receta not found for nombre:', nombre)
+        return null
+    }
+    return receta
 }

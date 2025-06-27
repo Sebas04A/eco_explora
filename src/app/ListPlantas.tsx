@@ -41,7 +41,7 @@ function ListPlantas({ plantas }: { plantas: Planta[] }) {
                     </div>
                 ))}
             </div>
-            {plantaSeleccionada && <Modal planta={plantaSeleccionada} cerrarModal={cerrarModal} />}
+            {/* {plantaSeleccionada && <Modal planta={plantaSeleccionada} cerrarModal={cerrarModal} />} */}
         </>
         // <div className='grid'>
         //     <div className='grid-product'>

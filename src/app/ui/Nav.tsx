@@ -24,7 +24,7 @@ export default function Navbar() {
             <ul className='flex space-x-4 p-4 w-full justify-center items-center '>
                 <li>
                     <Link href='/'>
-                        <div className='hover:text-green-600'>Inicio</div>
+                        <div className='hover:text-green-200'>Inicio</div>
                     </Link>
                 </li>
 

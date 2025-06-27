@@ -6,6 +6,11 @@ import SeccionRecetas from './SeccionRecetas'
 
 function SecionesRecetas({ secciones }: { secciones: { nombre: string; recetas: Receta[] }[] }) {
     const [recetaSeleccionada, setRecetaSeleccionada] = React.useState<Receta | null>(null)
+    function seleccionarReceta(receta: Receta | null) {
+        setRecetaSeleccionada(receta)
+        console.log('Receta seleccionada:', receta)
+        location.href = `/receta/${receta?.Nombre}`
+    }
     return (
         <>
             {secciones.map((seccion, index) => (
@@ -14,19 +19,19 @@ function SecionesRecetas({ secciones }: { secciones: { nombre: string; recetas: 
                     categoria={seccion.nombre}
                     recetas={seccion.recetas}
                     seleccionarReceta={(receta: Receta) => {
-                        setRecetaSeleccionada(receta)
+                        seleccionarReceta(receta)
                         console.log('Receta seleccionada:', receta)
                     }}
                 />
             ))}
-            {recetaSeleccionada &&
+            {/* {recetaSeleccionada &&
                 (console.log('Mostrando modal para receta:', recetaSeleccionada),
                 (
                     <ModalReceta
                         receta={recetaSeleccionada}
-                        onClose={() => setRecetaSeleccionada(null)}
+                        onClose={() => seleccionarReceta(null)}
                     />
-                ))}
+                ))} */}
         </>
     )
 }

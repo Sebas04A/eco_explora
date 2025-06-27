@@ -62,14 +62,6 @@ nav ul li a:hover {
 
 /*--- section product ---*/
 
-.product-mac h2,
-.product-iphone h2,
-.product-watch h2,
-.product-ipad h2 {
-    font-size: 2rem;
-    font-weight: 300;
-    margin-bottom: 20px;
-}
 .container {
     width: 1070px;
     display: flex;
