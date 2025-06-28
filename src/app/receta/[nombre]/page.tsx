@@ -1,5 +1,6 @@
 import { getReceta } from '@/app/api/recetas'
-import { Receta } from '@/app/api/types'
+import { Receta } from '@/app/types/types'
+
 import React from 'react'
 
 async function page(props: { params: Promise<{ nombre: string }> }) {

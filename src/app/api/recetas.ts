@@ -1,4 +1,4 @@
-import { Receta } from './types'
+import { Receta } from '../types/types'
 
 export const getRecetas = async () => {
     try {

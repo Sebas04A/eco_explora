@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
-
-import { Planta } from './api/types'
+import { Planta } from './types/types'
 
 function ListPlantas({ plantas }: { plantas: Planta[] }) {
     // const [plantaSeleccionada, setPlantaSeleccionada] = useState<Planta | null>(null)
@@ -20,7 +19,7 @@ function ListPlantas({ plantas }: { plantas: Planta[] }) {
             <div className='flex flex-wrap justify-center gap-4 w-full'>
                 {plantas.map(planta => (
                     <div
-                        className='flex flex-col bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 min-w-[200px] max-w-[300px] '
+                        className='flex flex-col bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 min-w-[200px] max-w-[300px] cursor-pointer'
                         key={planta.PlantaID}
                         onClick={() => seleccionarPlanta(planta)}
                     >

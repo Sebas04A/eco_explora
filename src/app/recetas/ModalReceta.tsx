@@ -1,5 +1,6 @@
 import React from 'react'
-import { Receta } from '../api/types'
+import { Receta } from '../types/types'
+
 // export interface Receta {
 //     RecetaID: number
 //     Nombre: string

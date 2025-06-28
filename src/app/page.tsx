@@ -1,9 +1,4 @@
-import SeccionPlantas from './SeccionPlantas'
-import { getPlantas } from './api/plantas'
-import { Planta } from './api/types'
-import { getForos } from './api/foro'
-import { Foro } from './types/types'
-import Map from './ui/Map'
+import Buscador from './ui/Buscador'
 
 export default async function Home() {
     // console.log('API URL:', process.env.NEXT_PUBLIC_API_URL)
@@ -17,21 +12,6 @@ export default async function Home() {
     //     // throw new Error('Error al cargar plantas')
     //     error = 'Error al cargar plantas'
     // }
-    const cargado = true
-
-    const plantas: Planta[] = await getPlantas()
-    const foros: Foro[] = await getForos()
-    console.log('Foros obtenidos:', foros)
-    const plantasPorCategoria: Record<string, Planta[]> = {}
-    plantas.forEach(planta => {
-        if (!plantasPorCategoria[planta.Categoria]) {
-            plantasPorCategoria[planta.Categoria] = []
-        }
-        plantasPorCategoria[planta.Categoria].push(planta)
-    })
-    console.log('Plantas por categoría:', plantasPorCategoria)
-    const error = null
-    console.log('Plantas:', plantas)
     // const plantasOrnamentales: Planta[] = plantas.filter(
     //     planta => planta.categoria === 'ornamentales'
     // )
@@ -57,31 +37,7 @@ export default async function Home() {
                     </p>
                 </div>
             </section>
-            <section className='p-8 rounded-lg shadow-md mt-8 mx-10 bg-gray-100'>
-                <Map plantas={foros} />
-            </section>
-            {error ? (
-                <div className='text-red-500 text-center mt-8'>
-                    <h2 className='text-2xl font-bold'>Error al cargar las plantas</h2>
-                    <p>{error}</p>
-                </div>
-            ) : (
-                <>
-                    {cargado ? (
-                        <div className='flex flex-col gap-4 p-8  bg-white rounded-lg shadow-md'>
-                            {Object.entries(plantasPorCategoria).map(([categoria, plantas]) => (
-                                <SeccionPlantas
-                                    titulo={categoria}
-                                    key={categoria}
-                                    plantas={plantas}
-                                />
-                            ))}
-                        </div>
-                    ) : (
-                        <p>Cargando plantas...</p>
-                    )}
-                </>
-            )}
+            <Buscador />
         </>
     )
 }

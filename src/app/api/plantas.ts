@@ -1,5 +1,5 @@
 import { PlantaSola } from '../types/types'
-import { Planta } from './types'
+import { Planta } from '../types/types'
 
 export const getPlantas = async (): Promise<Planta[]> => {
     try {

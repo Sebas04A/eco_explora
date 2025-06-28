@@ -36,14 +36,8 @@ export interface Planta {
     PlantaID: number
     NombreComun: string
     NombreCientifico: string
-    CategoriaID: number
-    ZonaID: number
-    Descripcion: string
-    ImagenURL: string
-    FechaRegistro: Date
-    UsuarioID: number
-    VecesConsumida: number
-    valorNutricional?: ValorNutricional
+    Categoria: string
+    Zona: string
 }
 export interface PlantaSola {
     PlantaID: number
@@ -85,6 +79,6 @@ export interface Receta {
     Nombre: string
     Descripcion: string
     Instrucciones: string
-    UsuarioID: number
     FechaRegistro: Date
+    Usuario: string
 }
