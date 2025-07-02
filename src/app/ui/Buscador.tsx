@@ -1,9 +1,9 @@
 import React from 'react'
-import Map from './Map'
 import { Foro, Planta } from '../types/types'
 import { getForos } from '../api/foro'
 import { getPlantas } from '../api/plantas'
 import SeccionPlantas from '../SeccionPlantas'
+import Mapa from './Mapa'
 
 export default async function Buscador() {
     const foros: Foro[] = await getForos()
@@ -27,8 +27,11 @@ export default async function Buscador() {
         <div className=''>
             <div>Filtros...</div>
 
-            <section className='sm:p-8 rounded-lg shadow-md my-8 border border-green-500 mx-10 bg-gray-100'>
-                <Map plantas={foros} />
+            <section
+                suppressHydrationWarning
+                className='sm:p-8 rounded-lg shadow-md my-8 border border-green-500 mx-10 bg-gray-100'
+            >
+                <Mapa plantas={foros} />
             </section>
 
             <>
