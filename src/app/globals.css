@@ -643,6 +643,7 @@ footer {
     flex: 1 1 calc(50% - 40px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    /* min-width: 200px; */
 }
 .receta-card h3 {
     font-weight: bold;

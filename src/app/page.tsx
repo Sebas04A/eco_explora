@@ -1,6 +1,6 @@
 import Buscador from './ui/Buscador'
 
-export default async function Home() {
+export default async function Page() {
     // console.log('API URL:', process.env.NEXT_PUBLIC_API_URL)
     // let cargado = false
     // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/planta`, {

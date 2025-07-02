@@ -1,10 +1,9 @@
 import React from 'react'
-import SecionesRecetas from './SecionesRecetas'
-
 import { getRecetas } from '../api/recetas'
 import { Receta } from '../types/types'
+import ListaReceta from './ListaReceta'
 
-async function Home() {
+async function Page() {
     const recetas: Receta[] = await getRecetas()
 
     const secciones: { nombre: string; recetas: Receta[] }[] = []
@@ -23,9 +22,10 @@ async function Home() {
             <section className='welcome welcome-recetas'>
                 <h1>Recetas Naturales</h1>
             </section>
-            <SecionesRecetas secciones={secciones} />
+
+            <ListaReceta recetas={recetas} />
         </>
     )
 }
 
-export default Home
+export default Page

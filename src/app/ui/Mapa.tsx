@@ -1,5 +1,6 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+
+import React, { useEffect, useRef, useState } from 'react'
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { Foro } from '../types/types'
@@ -33,7 +34,6 @@ const Mapa = ({ plantas }: { plantas: Foro[] }) => {
         markersRef.current.forEach(marker => marker.remove())
         markersRef.current = []
     }
-
     useEffect(() => {
         if (!mapContainer.current) return
         const map = new maplibregl.Map({
@@ -53,7 +53,7 @@ const Mapa = ({ plantas }: { plantas: Foro[] }) => {
         })
 
         return () => map.remove() // Limpieza al desmontar
-    }, [])
+    }, [plantas])
     useEffect(() => {
         if (!mapContainer.current || !mapRef.current) return
         const forosFiltrados = plantaFiltrada
@@ -61,10 +61,10 @@ const Mapa = ({ plantas }: { plantas: Foro[] }) => {
             : plantas
         clearMarkers() // Limpiar marcadores anteriores
         addPlantMarkers(mapRef.current, forosFiltrados, setPlantaSeleccionada, markersRef)
-    }, [forosFiltrados, plantaSeleccionada])
+    }, [plantaFiltrada, plantas])
     // return <div></div>
     return (
-        <div className='relative h-full w-full'>
+        <div className='relative h-full w-full bg-red-500 z-1'>
             <div ref={mapContainer} style={{ width: '100%', height: '500px' }} />
             <div className='absolute top-0 max-w-sm mb-4'>
                 <label className='block text-sm font-medium text-gray-700 mb-1'>
@@ -88,7 +88,7 @@ const Mapa = ({ plantas }: { plantas: Foro[] }) => {
                     <div className='bg-white rounded-2xl shadow-md p-4 border border-gray-200 w-full max-w-sm'>
                         <button
                             onClick={() => setPlantaSeleccionada(null)}
-                            className='absolute top-2 right-2 text-gray-500 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-full p-1'
+                            className='absolute top-0 left-0 p-2 text-gray-500 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-full p-1'
                             aria-label='Cerrar selección de planta'
                         >
                             <svg

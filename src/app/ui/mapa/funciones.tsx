@@ -10,19 +10,19 @@ export function addPlantMarkers(
     plantas.forEach(planta => {
         const longlat: [number, number] = [Number(planta.Longitud), Number(planta.Latitud)]
 
-        const popup = new maplibregl.Popup({ offset: 25 }).setHTML(`
-      <div style="
-        background: white;
-        padding: 6px 10px;
-        border-radius: 6px;
-        border: 1px solid #888;
-        font-size: 13px;
-        font-family: sans-serif;
-        box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-      ">
-        🌿 <strong>${planta.Planta}</strong>
-      </div>
-    `)
+        //     const popup = new maplibregl.Popup({ offset: 25 }).setHTML(`
+        //   <div style="
+        //     background: white;
+        //     padding: 6px 10px;
+        //     border-radius: 6px;
+        //     border: 1px solid #888;
+        //     font-size: 13px;
+        //     font-family: sans-serif;
+        //     box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        //   ">
+        //     🌿 <strong>${planta.Planta}</strong>
+        //   </div>
+        // `)
 
         const el = document.createElement('div')
         el.className = 'custom-marker'

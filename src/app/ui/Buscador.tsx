@@ -25,8 +25,6 @@ export default async function Buscador() {
 
     return (
         <div className=''>
-            <div>Filtros...</div>
-
             <section
                 suppressHydrationWarning
                 className='sm:p-8 rounded-lg shadow-md my-8 border border-green-500 mx-10 bg-gray-100'

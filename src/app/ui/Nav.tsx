@@ -29,7 +29,11 @@ export default function Navbar() {
     }, [])
 
     return (
-        <nav className='bg-green-600'>
+        <nav
+            className={`bg-green-600 h-20 
+        ${pathname !== '/' ? 'sticky top-0' : ''}
+        `}
+        >
             <div className='container mx-auto px-4 flex items-center justify-between py-4'>
                 {/* Botón hamburguesa (solo mobile) */}
                 <button
@@ -93,7 +97,7 @@ export default function Navbar() {
                             </svg>
                         </button>
                         {plantOpen && (
-                            <ul className='absolute left-0 mt-2 bg-white text-green-600 rounded shadow-lg min-w-[8rem]'>
+                            <ul className='absolute left-0 mt-2 bg-white text-green-600 rounded shadow-lg min-w-[8rem] z-11'>
                                 {categorias.map(cat => (
                                     <li key={cat}>
                                         <Link
