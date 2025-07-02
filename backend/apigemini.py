@@ -10,7 +10,8 @@ API_KEY = "AIzaSyDzLNBpSG4BFBzzFWjJU08Zn4DmsVAtRw8"
 genai.configure(api_key=API_KEY)
 
 # ✅ Modelo disponible en tu cuenta
-model = genai.GenerativeModel("gemini-1.5-flash-latest")
+model = genai.GenerativeModel("gemini-1.5-pro-latest")
+#model = genai.GenerativeModel("gemini-1.5-flash-latest")
 
 @app.route('/')
 def index():
