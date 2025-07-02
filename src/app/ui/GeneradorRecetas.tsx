@@ -21,7 +21,7 @@ export default function GeneradorReceta({ ingredientes }: GeneradorRecetaProps) 
     try {
       const result = await generarReceta(inputIngredientes);  // Llamamos a la API de recetas
       setReceta(result);  // Guardamos la receta generada en el estado
-    } catch (e) {
+    } catch {
       setReceta("❌ Error al generar la receta.");
     }
     setCargando(false);
@@ -71,7 +71,7 @@ export default function GeneradorReceta({ ingredientes }: GeneradorRecetaProps) 
         }
         button {
           padding: 12px;
-          background-color:rgb(64, 147, 1);
+          background-color:rgb(101, 234, 0);
           color: white;
           border: none;
           border-radius: 8px;
