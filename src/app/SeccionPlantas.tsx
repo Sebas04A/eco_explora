@@ -11,7 +11,7 @@ async function SeccionPlantas({ titulo, plantas }: { titulo: string; plantas: Pl
             <h2 className=' font-semibold text-2xl bg-green-700 text-white w-full text-center p-4 rounded-t-lg mb-6'>
                 {titulo}
             </h2>
-            <div className=''>
+            <div className='mb-6'>
                 <ListPlantas plantas={plantas} />
             </div>
             {/* </div> */}
