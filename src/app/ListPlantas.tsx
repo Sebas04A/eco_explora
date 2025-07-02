@@ -23,18 +23,17 @@ function ListPlantas({ plantas }: { plantas: Planta[] }) {
                         key={planta.PlantaID}
                         onClick={() => seleccionarPlanta(planta)}
                     >
-                        {/* <img
-                            src={planta.Imagen}
+                        {/* Descomenta y usa planta.ImagenURL */}
+                        <img
+                            src={planta.ImagenURL} // <-- Aquí se usa la URL de la imagen
                             alt={planta.NombreComun}
                             className='w-full h-48 object-cover'
-                        /> */}
+                        />
                         <div className='p-4 flex-1 flex flex-col'>
                             <p className='text-xl font-bold text-green-700 mb-2'>
                                 {planta.NombreComun}
                             </p>
-                            <p className='text-gray-600 flex-1 overflow-auto'>
-                                {/* {planta.Descripcion} */}
-                            </p>
+                            
                         </div>
                     </div>
                 ))}

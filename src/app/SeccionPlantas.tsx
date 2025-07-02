@@ -1,8 +1,8 @@
 import React from 'react'
 import ListPlantas from './ListPlantas'
-import { Planta } from './types/types'
+import { PlantaSola } from './types/types'
 
-async function SeccionPlantas({ titulo, plantas }: { titulo: string; plantas: Planta[] }) {
+async function SeccionPlantas({ titulo, plantas }: { titulo: string; plantas: PlantaSola[] }) {
     console.log('Plantas en SeccionPlantas:', plantas)
     console.log('Título de la sección:', titulo)
     return (
