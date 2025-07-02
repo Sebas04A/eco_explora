@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { Planta } from './types/types'
+import Image from 'next/image' // Importa el componente Image
 
 function ListPlantas({ plantas }: { plantas: Planta[] }) {
     // const [plantaSeleccionada, setPlantaSeleccionada] = useState<Planta | null>(null)
@@ -24,11 +25,17 @@ function ListPlantas({ plantas }: { plantas: Planta[] }) {
                         onClick={() => seleccionarPlanta(planta)}
                     >
                         {/* Descomenta y usa planta.ImagenURL */}
-                        <img
-                            src={planta.ImagenURL} // <-- Aquí se usa la URL de la imagen
-                            alt={planta.NombreComun}
-                            className='w-full h-48 object-cover'
-                        />
+                         <div style={{ position: 'relative', width: '100%', height: '192px' }}>
+                            <Image
+                                src={planta.ImagenURL} // <-- Ahora planta.ImagenURL estará definido
+                                alt={planta.NombreComun}
+                                fill // Esto hace que la imagen llene el contenedor padre
+                                style={{ objectFit: 'cover' }} // Equivalente a object-cover de Tailwind
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Para optimización responsiva
+                                quality={75} // Opcional: ajusta la calidad de la imagen (0-100)
+                                priority={false} // Carga perezosa por defecto, cámbialo a true si es la imagen LCP
+                            />
+                        </div>
                         <div className='p-4 flex-1 flex flex-col'>
                             <p className='text-xl font-bold text-green-700 mb-2'>
                                 {planta.NombreComun}
