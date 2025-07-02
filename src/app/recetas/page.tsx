@@ -30,7 +30,7 @@ function Page() {
   console.log('Secciones de recetas:', secciones);
 
   // Aquí podemos tener un estado con las plantas seleccionadas
-  const [ingredientes, setIngredientes] = useState("tomate, albahaca, cebolla");
+  const [ingredientes, setIngredientes] = useState("");
 
   return (
     <>
