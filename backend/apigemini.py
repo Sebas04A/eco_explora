@@ -1,9 +1,10 @@
+import os
 import google.generativeai as genai
 from flask import Flask, request, jsonify, render_template_string
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # 🔑 Tu API Key correcta
 API_KEY = "AIzaSyDzLNBpSG4BFBzzFWjJU08Zn4DmsVAtRw8"
@@ -84,5 +85,7 @@ def generar_receta():
 
     return jsonify({"receta": response.text})
 
+# Requerido por Render
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 10000))  # Render expone el puerto como variable de entorno
+    app.run(host='0.0.0.0', port=port)
