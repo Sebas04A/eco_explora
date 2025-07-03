@@ -62,7 +62,7 @@ async function page(props: { params: Promise<{ nombre: string }> }) {
                     </div>
                 </div>
                 <div className='mt-6  p-4 sm:p-6 rounded bg-green-100'>
-                    <ListaForo></ListaForo>
+                    <ListaForo nombrePlanta={planta.NombreComun} />
                 </div>
             </div>
         </div>

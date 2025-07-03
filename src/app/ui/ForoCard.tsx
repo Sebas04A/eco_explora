@@ -1,6 +1,7 @@
 import React from 'react'
 import { Foro } from '../types/types'
 
+
 function ForoCard({ foro }: { foro: Foro }) {
     return (
         <div className='bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition-all'>
