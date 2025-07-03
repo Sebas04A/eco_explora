@@ -38,6 +38,8 @@ export interface Planta {
     NombreCientifico: string
     Categoria: string
     Zona: string
+    ImagenURL: string
+
 }
 export interface PlantaSola {
     PlantaID: number
