@@ -4,15 +4,16 @@ from flask import Flask, request, jsonify, render_template_string
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/receta": {"origins": "*"}})
 
 # 🔑 Tu API Key correcta
-API_KEY = "AIzaSyDzLNBpSG4BFBzzFWjJU08Zn4DmsVAtRw8"
-genai.configure(api_key=API_KEY)
+# ✅ Lee correctamente el API_KEY desde el entorno
+API_KEY = os.environ.get("GOOGLE_API_KEY")
+genai.configure(api_key=API_KEY) 
 
 # ✅ Modelo disponible en tu cuenta
-model = genai.GenerativeModel("gemini-1.5-pro-latest")
-#model = genai.GenerativeModel("gemini-1.5-flash-latest")
+#model = genai.GenerativeModel("gemini-1.5-pro-latest")
+model = genai.GenerativeModel("gemini-1.5-flash-latest")
 
 @app.route('/')
 def index():
