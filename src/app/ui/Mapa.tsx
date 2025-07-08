@@ -55,6 +55,7 @@ const Mapa = ({ plantas }: { plantas: Foro[] }) => {
         return () => map.remove() // Limpieza al desmontar
     }, [plantas])
     useEffect(() => {
+        console.log('rendering mapa con plantas filtradas:', plantaFiltrada)
         if (!mapContainer.current || !mapRef.current) return
         const forosFiltrados = plantaFiltrada
             ? plantas.filter(f => f.Planta === plantaFiltrada)

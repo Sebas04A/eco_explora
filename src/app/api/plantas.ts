@@ -26,3 +26,23 @@ export const getPlanta = async (nombre: string) => {
     console.log('Planta fetched:', planta)
     return planta
 }
+
+export const postPlanta = async (planta: Planta): Promise<Planta> => {
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/plantas`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(planta),
+        })
+        if (!response.ok) {
+            throw new Error('Network response was not ok')
+        }
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.error('Error posting planta:', error)
+        throw error
+    }
+}
