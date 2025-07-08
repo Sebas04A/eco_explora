@@ -44,7 +44,6 @@ export default function Navbar() {
     if (token) {
       try {
         const decodedToken = jwtDecode<DecodedToken>(token);
-        // Comprueba si el token ha expirado
         if (decodedToken.exp * 1000 > Date.now()) {
           setUser({
             id: decodedToken.id,
@@ -52,7 +51,6 @@ export default function Navbar() {
             rol: decodedToken.rol
           });
         } else {
-          // Si el token ha expirado, lo eliminamos
           localStorage.removeItem('authToken');
         }
       } catch (error) {
@@ -76,7 +74,7 @@ export default function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem('authToken');
     setUser(null);
-    window.location.reload(); // Recarga para una actualización de estado simple
+    // Ya no es necesario recargar la página, React se encarga
   };
 
   const openLogin = () => {
@@ -88,6 +86,13 @@ export default function Navbar() {
     setShowLoginModal(false);
     setShowRegisterModal(true);
   }
+
+  // --- NUEVA FUNCIÓN ---
+  // Esta función se llamará desde el LoginModal cuando el login sea exitoso
+  const handleLoginSuccess = (userData: User) => {
+    setUser(userData); // Actualiza el estado del usuario en Navbar
+    setShowLoginModal(false); // Cierra el modal
+  };
 
   return (
     <>
@@ -231,8 +236,8 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Renderizado condicional de los modales */}
-      {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} onSwitchToRegister={openRegister} />}
+      {/* Renderizado condicional de los modales con la nueva prop */}
+      {showLoginModal && <LoginModal onLoginSuccess={handleLoginSuccess} onClose={() => setShowLoginModal(false)} onSwitchToRegister={openRegister} />}
       {showRegisterModal && <RegisterModal onClose={() => setShowRegisterModal(false)} onSwitchToLogin={openLogin} />}
     </>
   )
