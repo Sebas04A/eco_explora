@@ -170,6 +170,15 @@ export default function Navbar() {
                             </button>
                             {plantOpen && (
                                 <ul className='absolute left-0 mt-2 bg-white text-green-700 rounded shadow-lg min-w-[8rem] z-10'>
+                                    <li>
+                                        <Link
+                                            href='/plantas'
+                                            className='block px-4 py-2 hover:bg-green-100'
+                                            onClick={() => setPlantOpen(false)}
+                                        >
+                                            Todas
+                                        </Link>
+                                    </li>
                                     {categorias.map(cat => (
                                         <li key={cat}>
                                             <Link
@@ -184,53 +193,53 @@ export default function Navbar() {
                                 </ul>
                             )}
                         </li>
-
-                        {user ? (
-                            <>
-                                <li>
-                                    <span className='flex items-center'>
-                                        <UserCircle className='mr-2 h-5 w-5' /> Bienvenido,{' '}
-                                        {user.nombre}
-                                    </span>
-                                </li>
-                                <li>
-                                    <button
-                                        onClick={handleLogout}
-                                        className='inline-flex items-center gap-2 bg-red-500 text-white font-semibold px-4 py-2 rounded-xl shadow hover:bg-red-600 transition'
-                                    >
-                                        <LogOut className='w-4 h-4' /> Cerrar Sesión
-                                    </button>
-                                </li>
-                            </>
-                        ) : (
-                            <>
-                                <li>
-                                    <button
-                                        onClick={openLogin}
-                                        className='hover:text-green-200 transition'
-                                    >
-                                        Iniciar sesión
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        onClick={openRegister}
-                                        className='inline-flex items-center bg-white text-green-700 font-semibold px-4 py-2 rounded-xl shadow hover:bg-green-100 transition'
-                                    >
-                                        Registrarse
-                                    </button>
-                                </li>
-                            </>
-                        )}
-
                         <li>
                             <Link
                                 href='/ingresar'
-                                className='inline-flex items-center gap-2 bg-green-500 text-white font-semibold px-4 py-2 rounded-xl shadow hover:bg-green-600 transition'
+                                className='inline-flex items-center gap-2 bg-green-500 text-white font-semibold px-4 py-2 rounded-xl shadow hover:bg-green-600 transition whitespace-nowrap overflow-hidden text-ellipsis'
                             >
                                 <Leaf className='w-4 h-4' /> Reconocer planta
                             </Link>
                         </li>
+                        <div className='flex items-center space-x-4 ml-6 '>
+                            {user ? (
+                                <>
+                                    <li>
+                                        <span className='flex items-center'>
+                                            <UserCircle className='mr-2 h-5 w-5' /> Bienvenido,{' '}
+                                            {user.nombre}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <button
+                                            onClick={handleLogout}
+                                            className='inline-flex items-center gap-2 bg-red-500 text-white font-semibold px-4 py-2 rounded-xl shadow hover:bg-red-600 transition'
+                                        >
+                                            <LogOut className='w-4 h-4' /> Cerrar Sesión
+                                        </button>
+                                    </li>
+                                </>
+                            ) : (
+                                <>
+                                    <li>
+                                        <button
+                                            onClick={openLogin}
+                                            className='hover:text-green-200 transition'
+                                        >
+                                            Iniciar sesión
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            onClick={openRegister}
+                                            className='inline-flex items-center bg-white text-green-700 font-semibold px-4 py-2 rounded-xl shadow hover:bg-green-100 transition'
+                                        >
+                                            Registrarse
+                                        </button>
+                                    </li>
+                                </>
+                            )}
+                        </div>
                     </ul>
                 </div>
 
@@ -300,18 +309,6 @@ export default function Navbar() {
                                     </li>
                                 </>
                             )}
-
-                            <hr />
-
-                            <li>
-                                <Link
-                                    href='/ingresar'
-                                    className='block font-semibold'
-                                    onClick={() => setMobileOpen(false)}
-                                >
-                                    🌿 Reconocer planta
-                                </Link>
-                            </li>
                         </ul>
                     </div>
                 )}
