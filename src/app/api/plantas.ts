@@ -3,7 +3,11 @@ import { Planta } from '../types/types'
 
 export const getPlantas = async (): Promise<Planta[]> => {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/plantas`)
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/plantas`, {
+            next: {
+                revalidate: 60, // Revalidar cada 60 segundos
+            },
+        })
         if (!response.ok) {
             throw new Error('Network response was not ok')
         }
