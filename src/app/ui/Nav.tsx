@@ -201,6 +201,18 @@ export default function Navbar() {
                                 <Leaf className='w-4 h-4' /> Reconocer planta
                             </Link>
                         </li>
+                        
+                        {user && (
+                        <li>
+                            <Link
+                            href='/crear-foro'
+                            className='inline-flex items-center gap-2 bg-white text-green-700 font-semibold px-4 py-2 rounded-xl shadow hover:bg-green-100 transition whitespace-nowrap'
+                            >
+                            Agregar foro
+                            </Link>
+                        </li>
+                        )}
+
                         <div className='flex items-center space-x-4 ml-6 '>
                             {user ? (
                                 <>
@@ -261,6 +273,18 @@ export default function Navbar() {
                                 </li>
                             ))}
                             {/* Aquí podrías añadir el dropdown de plantas para móvil si lo necesitas */}
+
+                                {user && (
+                            <li>
+                                <Link
+                                href='/crear-foro'
+                                onClick={() => setMobileOpen(false)}
+                                className='block font-semibold'
+                                >
+                                Agregar foro
+                                </Link>
+                            </li>
+                            )}
 
                             <hr />
 

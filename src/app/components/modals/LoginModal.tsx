@@ -42,6 +42,7 @@ export default function LoginModal({ onClose, onSwitchToRegister, onLoginSuccess
       }
       
       localStorage.setItem('authToken', data.token);
+      localStorage.setItem('authUser', JSON.stringify(data.usuario));
       
       // --- CAMBIO PRINCIPAL ---
       // En lugar de recargar, llamamos a la función del padre (Navbar)
