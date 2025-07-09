@@ -1,4 +1,3 @@
-import next from 'next'
 import { Receta } from '../types/types'
 
 export const getRecetas = async () => {
