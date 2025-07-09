@@ -1,6 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
 
+
+
 interface Planta {
   PlantaID: number
   NombreComun: string
