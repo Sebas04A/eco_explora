@@ -1,8 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
 
-
-
 interface Planta {
   PlantaID: number
   NombreComun: string
@@ -45,8 +43,8 @@ export default function CrearForo() {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/plantas`)
         const data = await res.json()
         setPlantas(data)
-      } catch (err) {
-        console.error('Error cargando plantas:', err)
+      } catch (_err) {
+        console.error('Error cargando plantas:', _err)
       }
     }
     fetchPlantas()
@@ -88,8 +86,8 @@ export default function CrearForo() {
       })
       const data = await res.json()
       setForm(prev => ({ ...prev, ImagenURL: data.secure_url }))
-    } catch (err) {
-      console.error('Error al subir imagen:', err)
+    } catch (_err) {
+      console.error('Error al subir imagen:', _err)
     }
   }
 
@@ -121,13 +119,13 @@ export default function CrearForo() {
       const resultado = await res.json()
 
       if (res.ok) {
-        setMensaje('✅ Foro creado correctamente.')
+        setMensaje('Foro creado correctamente.')
         setForm({ PlantaID: 0, Comentario: '', ImagenURL: '', Latitud: '', Longitud: '' })
       } else {
-        setMensaje(`❌ Error al crear foro: ${resultado.message || 'Revisa los datos.'}`)
+        setMensaje(`Error al crear foro: ${resultado.message || 'Revisa los datos.'}`)
       }
-    } catch (err) {
-      setMensaje('❌ Error al enviar los datos del foro.')
+    } catch (_err) {
+      setMensaje(' Error al enviar los datos del foro.')
     }
 
     setCargando(false)
