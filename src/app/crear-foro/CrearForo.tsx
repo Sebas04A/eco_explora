@@ -44,8 +44,9 @@ export default function CrearForo() {
         const data = await res.json()
         setPlantas(data)
       } catch (_err) {
-        console.error('Error cargando plantas:', _err)
+        console.error('Error cargando plantas')
       }
+
     }
     fetchPlantas()
   }, [])
@@ -86,8 +87,8 @@ export default function CrearForo() {
       })
       const data = await res.json()
       setForm(prev => ({ ...prev, ImagenURL: data.secure_url }))
-    } catch (_err) {
-      console.error('Error al subir imagen:', _err)
+    } catch (err) {
+      console.error('Error al subir imagen:', err)
     }
   }
 
