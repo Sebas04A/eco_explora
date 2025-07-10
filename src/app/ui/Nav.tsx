@@ -194,6 +194,14 @@ export default function Navbar() {
                             )}
                         </li>
                         <li>
+                        <Link
+                                href="/nosotros"
+                                className={`hover:text-green-200 transition ${pathname === '/nosotros' ? 'underline underline-offset-4' : ''}`}
+                            >
+                                Nosotros
+                            </Link>
+                        </li>
+                        <li>
                             <Link
                                 href='/ingresar'
                                 className='inline-flex items-center gap-2 bg-green-500 text-white font-semibold px-4 py-2 rounded-xl shadow hover:bg-green-600 transition whitespace-nowrap overflow-hidden text-ellipsis'
