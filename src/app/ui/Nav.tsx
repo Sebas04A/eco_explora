@@ -2,7 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+// 1. Importar useRouter
+import { usePathname, useRouter } from 'next/navigation'
 import { Leaf, UserCircle, LogOut } from 'lucide-react'
 import { jwtDecode } from 'jwt-decode'
 import LoginModal from '../components/modals/LoginModal' // Ajusta la ruta si es necesario
@@ -37,6 +38,8 @@ export default function Navbar() {
 
   const dropdownRef = useRef<HTMLLIElement>(null)
   const pathname = usePathname()
+  // 2. Inicializar el router
+  const router = useRouter()
 
   // Efecto para comprobar el token y establecer el usuario al cargar la página
   useEffect(() => {
@@ -59,8 +62,12 @@ export default function Navbar() {
       }
     }
   }, []);
-
+// --- LÓGICA PARA OCULTAR EL NAVBAR ---
+  // Comprueba si la ruta actual es una página de administración
+ 
   // Efecto para cerrar el dropdown de plantas al hacer clic fuera
+
+  
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -74,13 +81,15 @@ export default function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem('authToken');
     setUser(null);
-    // Ya no es necesario recargar la página, React se encarga
+    // 3. Redirigir al inicio
+    router.push('/');
   };
 
   const openLogin = () => {
     setShowRegisterModal(false);
     setShowLoginModal(true);
   }
+ 
 
   const openRegister = () => {
     setShowLoginModal(false);
@@ -90,10 +99,17 @@ export default function Navbar() {
   // --- NUEVA FUNCIÓN ---
   // Esta función se llamará desde el LoginModal cuando el login sea exitoso
   const handleLoginSuccess = (userData: User) => {
-    setUser(userData); // Actualiza el estado del usuario en Navbar
+    if(userData){
+      setUser(userData);
+    }
+     // Actualiza el estado del usuario en Navbar
     setShowLoginModal(false); // Cierra el modal
   };
-
+ const isAdminPage = pathname.startsWith('/admin');
+   // Si el usuario es Administrador y está en una página de admin, no renderiza nada.
+  if (user?.rol === "Administrador" && isAdminPage) {
+    return null;
+  }
   return (
     <>
       <nav
@@ -205,7 +221,37 @@ export default function Navbar() {
                 </li>
               ))}
               {/* Aquí podrías añadir el dropdown de plantas para móvil si lo necesitas */}
-
+ <li className='relative' ref={dropdownRef}>
+                <button
+                  onClick={() => setPlantOpen(open => !open)}
+                  className='flex items-center hover:text-green-200 transition focus:outline-none'
+                >
+                  Plantas
+                  <svg
+                    className={`w-4 h-4 ml-1 transition-transform ${plantOpen ? 'rotate-180' : ''}`}
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19 9l-7 7-7-7' />
+                  </svg>
+                </button>
+                {plantOpen && (
+                  <ul className='absolute left-0 mt-2 bg-white text-green-700 rounded shadow-lg min-w-[8rem] z-10'>
+                    {categorias.map(cat => (
+                      <li key={cat}>
+                        <Link
+                          href={`/plantas/${cat}`}
+                          className='block px-4 py-2 hover:bg-green-100'
+                          onClick={() => setPlantOpen(false)}
+                        >
+                          {cat}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
               <hr/>
 
               {user ? (

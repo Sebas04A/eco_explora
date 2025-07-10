@@ -1,6 +1,8 @@
 // src/app/components/modals/LoginModal.tsx
 'use client';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'; // 1. Importar el router
+
 
 // Definimos el tipo para los datos del usuario que la API devuelve
 interface User {
@@ -21,6 +23,8 @@ export default function LoginModal({ onClose, onSwitchToRegister, onLoginSuccess
   const [contrasena, setContrasena] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter(); // 2. Inicializar el router
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,12 +46,20 @@ export default function LoginModal({ onClose, onSwitchToRegister, onLoginSuccess
       }
       
       localStorage.setItem('authToken', data.token);
-      
       // --- CAMBIO PRINCIPAL ---
       // En lugar de recargar, llamamos a la función del padre (Navbar)
       // y le pasamos los datos del usuario que recibimos de la API.
+       // 3. Lógica de redirección por rol
+        
+      // --- LÓGICA CORREGIDA ---
+      // 1. Notifica al Navbar que el login fue exitoso y pasa los datos del usuario.
       onLoginSuccess(data.usuario);
-
+      
+      // 2. Si el usuario es Administrador, redirige al panel.
+      if (data.usuario?.rol === 'Administrador') {
+        router.push('/admin/usuarios');
+      }
+        
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
