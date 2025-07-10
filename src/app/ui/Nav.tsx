@@ -165,94 +165,106 @@ export default function Navbar() {
 
                 {/* ------ 3. MENÚ MÓVIL ADAPTADO ------ */}
                 {mobileOpen && (
-                    <div className='md:hidden bg-white text-green-700 shadow-lg z-10'>
-                        <ul className='flex flex-col space-y-2 px-4 pt-2 pb-4 text-base'>
-                            {navItems.map(({ label, href }) => (
-                                <li key={href}>
-                                    <Link
-                                        href={href}
-                                        className={`block py-2 ${pathname === href ? 'font-semibold' : ''}`}
-                                        onClick={closeAllMobileMenus}
-                                    >
-                                        {label}
-                                    </Link>
-                                </li>
-                            ))}
-                            
-                            {/* --- Sección de Plantas para Móvil --- */}
-                            <li>
-                                <button
-                                    onClick={() => setMobilePlantOpen(open => !open)}
-                                    className='w-full flex justify-between items-center py-2 font-medium'
-                                >
-                                    <span>Plantas</span>
-                                    <svg className={`w-4 h-4 transition-transform ${mobilePlantOpen ? 'rotate-180' : ''}`} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19 9l-7 7-7-7' />
-                                    </svg>
-                                </button>
-                                {mobilePlantOpen && (
-                                    <ul className='pl-4 mt-1 space-y-1 border-l border-green-200'>
-                                        <li>
-                                            <Link href='/plantas' className='block py-1 hover:bg-green-50' onClick={closeAllMobileMenus}>
-                                                Todas
-                                            </Link>
-                                        </li>
-                                        {categorias.map(cat => (
-                                            <li key={cat}>
-                                                <Link href={`/plantas/${cat}`} className='block py-1 hover:bg-green-50' onClick={closeAllMobileMenus}>
-                                                    {cat}
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
-                            </li>
-                             <li>
-                                <Link href='/nosotros' className={`block py-2 ${pathname === '/nosotros' ? 'font-semibold' : ''}`} onClick={closeAllMobileMenus}>
-                                    Nosotros
+    <div className='md:hidden bg-white text-green-700 shadow-lg z-10'>
+        <ul className='flex flex-col space-y-2 px-4 pt-2 pb-4 text-base'>
+            {navItems.map(({ label, href }) => (
+                <li key={href}>
+                    <Link
+                        href={href}
+                        className={`block py-2 ${pathname === href ? 'font-semibold' : ''}`}
+                        onClick={closeAllMobileMenus}
+                    >
+                        {label}
+                    </Link>
+                </li>
+            ))}
+            
+            {/* --- Sección de Plantas para Móvil --- */}
+            <li>
+                <button
+                    onClick={() => setMobilePlantOpen(open => !open)}
+                    className='w-full flex justify-between items-center py-2 font-medium'
+                >
+                    <span>Plantas</span>
+                    <svg className={`w-4 h-4 transition-transform ${mobilePlantOpen ? 'rotate-180' : ''}`} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19 9l-7 7-7-7' />
+                    </svg>
+                </button>
+                {mobilePlantOpen && (
+                    <ul className='pl-4 mt-1 space-y-1 border-l border-green-200'>
+                        <li>
+                            <Link href='/plantas' className='block py-1 hover:bg-green-50' onClick={closeAllMobileMenus}>
+                                Todas
+                            </Link>
+                        </li>
+                        {categorias.map(cat => (
+                            <li key={cat}>
+                                <Link href={`/plantas/${cat}`} className='block py-1 hover:bg-green-50' onClick={closeAllMobileMenus}>
+                                    {cat}
                                 </Link>
                             </li>
-
-                            {user && (
-                                <li>
-                                    <Link href='/crear-foro' onClick={closeAllMobileMenus} className='block py-2 font-semibold'>
-                                        Agregar foro
-                                    </Link>
-                                </li>
-                            )}
-
-                            <hr className='my-2'/>
-
-                            {user ? (
-                                <>
-                                    <li>
-                                        <span className='flex items-center font-semibold py-2'>
-                                            <UserCircle className='mr-2 h-5 w-5' /> {user.nombre}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <button onClick={() => { handleLogout(); closeAllMobileMenus(); }} className='w-full text-left text-red-600 font-semibold py-2'>
-                                            Cerrar Sesión
-                                        </button>
-                                    </li>
-                                </>
-                            ) : (
-                                <>
-                                    <li>
-                                        <button onClick={() => { openLogin(); setMobileOpen(false); }} className='w-full text-left py-2'>
-                                            Iniciar Sesión
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button onClick={() => { openRegister(); setMobileOpen(false); }} className='w-full text-left py-2'>
-                                            Registrarse
-                                        </button>
-                                    </li>
-                                </>
-                            )}
-                        </ul>
-                    </div>
+                        ))}
+                    </ul>
                 )}
+            </li>
+            <li>
+                <Link href='/nosotros' className={`block py-2 ${pathname === '/nosotros' ? 'font-semibold' : ''}`} onClick={closeAllMobileMenus}>
+                    Nosotros
+                </Link>
+            </li>
+
+            {/* --- AÑADIDO: Enlace para Reconocer Planta --- */}
+            <li>
+                <Link 
+                    href='/ingresar' 
+                    className='flex items-center gap-2 py-2 font-semibold text-green-600' 
+                    onClick={closeAllMobileMenus}
+                >
+                    <Leaf className='w-5 h-5' />
+                    <span>Reconocer planta</span>
+                </Link>
+            </li>
+
+            {user && (
+                <li>
+                    <Link href='/crear-foro' onClick={closeAllMobileMenus} className='block py-2 font-semibold'>
+                        Agregar foro
+                    </Link>
+                </li>
+            )}
+
+            <hr className='my-2'/>
+
+            {user ? (
+                <>
+                    <li>
+                        <span className='flex items-center font-semibold py-2'>
+                            <UserCircle className='mr-2 h-5 w-5' /> {user.nombre}
+                        </span>
+                    </li>
+                    <li>
+                        <button onClick={() => { handleLogout(); closeAllMobileMenus(); }} className='w-full text-left text-red-600 font-semibold py-2'>
+                            Cerrar Sesión
+                        </button>
+                    </li>
+                </>
+            ) : (
+                <>
+                    <li>
+                        <button onClick={() => { openLogin(); setMobileOpen(false); }} className='w-full text-left py-2'>
+                            Iniciar Sesión
+                        </button>
+                    </li>
+                    <li>
+                        <button onClick={() => { openRegister(); setMobileOpen(false); }} className='w-full text-left py-2'>
+                            Registrarse
+                        </button>
+                    </li>
+                </>
+            )}
+        </ul>
+    </div>
+)}
             </nav>
 
             {/* Renderizado de modales (sin cambios) */}
