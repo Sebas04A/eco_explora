@@ -2,7 +2,11 @@ import { Receta } from '../types/types'
 
 export const getRecetas = async () => {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/recetas`)
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/recetas`, {
+            next: {
+                revalidate: 3000, // Revalidar cada 60 segundos
+            },
+        })
         if (!response.ok) {
             throw new Error('Network response was not ok')
         }

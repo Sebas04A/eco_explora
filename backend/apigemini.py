@@ -75,7 +75,7 @@ def generar_receta():
     # Nuevo prompt para generar la receta sin el prefijo 'html'
     prompt = f"""
     Genera una receta completa en español utilizando estos ingredientes: {ingredientes}.
-    Incluye nombre del plato, ingredientes exactos, pasos detallados y asegúrate de devolverla en formato HTML puro. No agregues ningún prefijo o marca de tipo Markdown. Utiliza las siguientes etiquetas:
+    Incluye nombre del plato, ingredientes exactos, pasos detallados, dame las calorías de la receta, las calorías por porción y asegúrate de devolverla en formato HTML puro. No agregues ningún prefijo o marca de tipo Markdown. Utiliza las siguientes etiquetas:
     - <h2> para el título
     - <ul> y <li> para los ingredientes
     - <p> para los pasos de la receta.

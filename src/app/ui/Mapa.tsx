@@ -55,6 +55,7 @@ const Mapa = ({ plantas }: { plantas: Foro[] }) => {
         return () => map.remove() // Limpieza al desmontar
     }, [plantas])
     useEffect(() => {
+        console.log('rendering mapa con plantas filtradas:', plantaFiltrada)
         if (!mapContainer.current || !mapRef.current) return
         const forosFiltrados = plantaFiltrada
             ? plantas.filter(f => f.Planta === plantaFiltrada)
@@ -66,7 +67,7 @@ const Mapa = ({ plantas }: { plantas: Foro[] }) => {
     return (
         <div className='relative h-full w-full bg-red-500 z-1'>
             <div ref={mapContainer} style={{ width: '100%', height: '500px' }} />
-            <div className='absolute top-0 max-w-sm mb-4'>
+            <div className='absolute top-0 max-w-sm mb-4 bg-gray-200 p-5 rounded-xl shadow-md z-10 '>
                 <label className='block text-sm font-medium text-gray-700 mb-1'>
                     Filtrar por planta
                 </label>
@@ -88,7 +89,7 @@ const Mapa = ({ plantas }: { plantas: Foro[] }) => {
                     <div className='bg-white rounded-2xl shadow-md p-4 border border-gray-200 w-full max-w-sm'>
                         <button
                             onClick={() => setPlantaSeleccionada(null)}
-                            className='absolute top-0 left-0 p-2 text-gray-500 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-full p-1'
+                            className='bg-white absolute top-2 left-2 p-2 text-green-500 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 rounded-full p-1'
                             aria-label='Cerrar selección de planta'
                         >
                             <svg
