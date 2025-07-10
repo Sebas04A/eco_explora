@@ -41,6 +41,7 @@ const [authError, setAuthError] = useState<string | null>(null); // Renombramos 
   const handleLogout = () => {
     localStorage.removeItem('authToken');
     window.location.href = '/';
+    localStorage.clear()
   };
 
 
