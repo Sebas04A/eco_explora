@@ -8,6 +8,11 @@ const Nosotros = () => {
     <div className="nosotros-container">
       <div className="nosotros-header">
         <h2>Sobre Nosotros</h2>
+        <img
+          src="https://res.cloudinary.com/dzj2zgmgq/image/upload/v1752170848/logoPUCE_edthxt.jpg"
+          alt="Logo PUCE"
+          className="nosotros-logo"
+        />
       </div>
 
       <div className="nosotros-section">
