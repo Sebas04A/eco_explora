@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './nosotros.css';
-import { FaUserTie, FaLaptopCode, FaPaintBrush } from "react-icons/fa";
+import { FaLaptopCode, FaPaintBrush } from "react-icons/fa";
 
 
 const Nosotros = () => {
