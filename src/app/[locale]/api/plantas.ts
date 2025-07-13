@@ -20,14 +20,12 @@ export const getPlantas = async (): Promise<Planta[]> => {
 }
 export const getPlanta = async (nombre: string) => {
     const api = `${process.env.NEXT_PUBLIC_API_URL}/plantas/nombre/${encodeURIComponent(nombre)}`
-    console.log('Fetching planta from API:', api)
     const response = await fetch(api)
     if (!response.ok) {
         console.error('Error fetching planta:', response.statusText)
         return null
     }
     const planta: PlantaSola = await response.json()
-    console.log('Planta fetched:', planta)
     return planta
 }
 

@@ -12,12 +12,10 @@ async function ListaForo({ nombrePlanta }: { nombrePlanta: string }) {
 
     // ✅ PASO DE DEPURACIÓN: Muestra en la consola qué nombre de planta se está buscando.
     // Abre la consola de tu navegador (F12) para ver este mensaje.
-    console.log(`Buscando foros para la planta: "${nombrePlanta}"`)
 
     // 2. Se filtran los foros con una comparación más robusta
     const forosFiltrados = todosLosForos.filter(foro => {
         // ✅ PASO DE DEPURACIÓN: Muestra los nombres que se están comparando.
-        console.log(`Comparando: "${foro.Planta}" con "${nombrePlanta}"`)
 
         // Se convierten ambos textos a minúsculas y se quitan los espacios de los lados
         // antes de compararlos. Esto soluciona el problema.

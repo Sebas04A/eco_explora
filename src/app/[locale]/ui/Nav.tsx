@@ -83,18 +83,6 @@ export default function Navbar() {
         }
     }, [])
 
-    // // Efecto para cerrar dropdowns al hacer click fuera
-    // useEffect(() => {
-    //     const handleClickOutside = (e: MouseEvent) => {
-    //         console.log('Click outside detected', e.target)
-    //         if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-    //             setIsPlantsMenuOpen(false)
-    //         }
-    //     }
-    //     document.addEventListener('mousedown', handleClickOutside)
-    //     return () => document.removeEventListener('mousedown', handleClickOutside)
-    // }, [])
-
     const handleLogout = () => {
         localStorage.removeItem('authToken')
         setUser(null)
@@ -337,11 +325,7 @@ export default function Navbar() {
                                     {/* Plantas dropdown móvil */}
                                     <div className=''>
                                         <button
-                                            onClick={() => {
-                                                console.log('plantas dropdown', isPlantsMenuOpen)
-
-                                                return setIsPlantsMenuOpen(!isPlantsMenuOpen)
-                                            }}
+                                            onClick={() => setIsPlantsMenuOpen(!isPlantsMenuOpen)}
                                             className='w-full text-left text-white hover:text-green-200 py-2 px-3 rounded-md hover:bg-green-700/30 transition-colors duration-200 flex items-center justify-between text-sm'
                                         >
                                             <div className='flex items-center space-x-2'>

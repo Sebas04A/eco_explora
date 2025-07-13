@@ -9,21 +9,7 @@ import { getTranslations } from 'next-intl/server'
 
 export default async function Buscador() {
     const foros: Foro[] = await getForos()
-    console.log('Foros obtenidos:', foros)
     const t = await getTranslations('DiscoverSection')
-
-    // const plantas: Planta[] = await getPlantas()
-
-    // const plantasPorCategoria: Record<string, Planta[]> = {}
-    // plantas.forEach(planta => {
-    //     if (!plantasPorCategoria[planta.Categoria]) {
-    //         plantasPorCategoria[planta.Categoria] = []
-    //     }
-    //     plantasPorCategoria[planta.Categoria].push(planta)
-    // })
-    // cargando = false
-    // console.log('Plantas por categoría:', plantasPorCategoria)
-    // console.log('Plantas:', plantas)
 
     return (
         <div className=''>

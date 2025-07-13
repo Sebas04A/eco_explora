@@ -24,8 +24,6 @@ const Mapa = ({ plantas }: { plantas: Foro[] }) => {
     const markersRef = useRef<maplibregl.Marker[]>([])
     const mapRef = useRef<maplibregl.Map | null>(null)
 
-    console.log('Plantas recibidas en el mapa:', plantas)
-
     const [plantaSeleccionada, setPlantaSeleccionada] = useState<Foro | null>(null)
     const [plantaFiltrada, setPlantaFiltrada] = useState('')
     const forosFiltrados = plantaFiltrada

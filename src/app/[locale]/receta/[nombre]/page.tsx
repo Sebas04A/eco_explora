@@ -8,12 +8,10 @@ async function page(props: { params: Promise<{ nombre: string }> }) {
     const t = await getTranslations('RecetaPage')
 
     const nombreReceta = decodeURIComponent((await props.params).nombre)
-    console.log('Nombre de la receta:', nombreReceta)
     const receta: Receta | null = await getReceta(nombreReceta)
     if (!receta) {
         return <div className='p-8'>{t('notFound')}</div>
     }
-    console.log('Receta obtenida:', receta)
     const instrConSaltos = receta.Instrucciones.replace(/\\n/g, '\n')
 
     return (

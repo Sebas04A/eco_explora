@@ -29,7 +29,6 @@ export default async function RootLayout({
     params: Promise<{ locale: string }>
 }>) {
     const { locale } = await params
-    console.log('Locale:', locale)
     if (!hasLocale(routing.locales, locale)) {
         notFound()
     }

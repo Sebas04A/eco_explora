@@ -6,7 +6,6 @@ function SecionesRecetas({ secciones }: { secciones: { nombre: string; recetas: 
     // const [recetaSeleccionada, setRecetaSeleccionada] = React.useState<Receta | null>(null)
     function seleccionarReceta(receta: Receta | null) {
         // setRecetaSeleccionada(receta)
-        console.log('Receta seleccionada:', receta)
         location.href = `/receta/${receta?.Nombre}`
     }
     return (
@@ -37,14 +36,6 @@ function SecionesRecetas({ secciones }: { secciones: { nombre: string; recetas: 
                     </div>
                 </section>
             ))}
-            {/* {recetaSeleccionada &&
-                (console.log('Mostrando modal para receta:', recetaSeleccionada),
-                (
-                    <ModalReceta
-                        receta={recetaSeleccionada}
-                        onClose={() => seleccionarReceta(null)}
-                    />
-                ))} */}
         </>
     )
 }

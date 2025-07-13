@@ -10,15 +10,10 @@ async function page(props: { params: Promise<{ nombre: string }> }) {
 
     const nombre: string = decodeURIComponent((await props.params).nombre)
 
-    console.log('Nombre de la planta:', nombre)
-    // const cerrarModal = () => {
-    //     console.log('Modal cerrado')
-    // }
     const planta: PlantaSola | null = await getPlanta(nombre)
     if (!planta) {
         return <div className='p-8'>{t('notFound')}</div>
     }
-    console.log('Planta obtenida:', planta)
     return (
         <div className='flex flex-col items-center justify-center min-h-screen bg-gray-100'>
             <div className='mx-auto w-full mt-10 md:m-12 p-2  bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 max-w-4xl '>

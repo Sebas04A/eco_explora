@@ -2,7 +2,6 @@ import { Foro } from '../types/types'
 
 export const getForos = async (): Promise<Foro[]> => {
     const api = `${process.env.NEXT_PUBLIC_API_URL}/foro`
-    console.log('Fetching foros from API:', api)
     try {
         const response = await fetch(api, {
             next: {
@@ -21,7 +20,6 @@ export const getForos = async (): Promise<Foro[]> => {
 }
 export const postForo = async (foro: Foro): Promise<Foro> => {
     const api = `${process.env.NEXT_PUBLIC_API_URL}/foro`
-    console.log('Posting foro to API:', api)
     try {
         const response = await fetch(api, {
             method: 'POST',
