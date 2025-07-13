@@ -2,7 +2,6 @@ import React from 'react'
 import { getPlanta } from '@/app/[locale]/api/plantas'
 import { PlantaSola } from '@/app/[locale]/types/types'
 import ListaForo from '@/app/[locale]/ui/ListaForo'
-import { get } from 'axios'
 import { getTranslations } from 'next-intl/server'
 
 async function page(props: { params: Promise<{ nombre: string }> }) {
