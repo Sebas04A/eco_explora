@@ -8,7 +8,9 @@ const LOCALES = [
     { code: 'en', label: 'English' },
     { code: 'es', label: 'Español' },
     { code: 'fr', label: 'Français' },
-    { code: 'qu', label: 'Kichwa' },
+    { code: 'qu', label: 'Qechua' },
+    { code: 'de', label: 'Deutsch' },
+    { code: 'it', label: 'Italiano' },
 ] as const
 
 export default function LocaleSwitcher() {
