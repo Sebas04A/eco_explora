@@ -38,6 +38,7 @@
         "plants": "Plants",
         "aboutUs": "About Us",
         "recognizePlant": "Identify Plant",
+        "account": "Account",
         "addForum": "Add Forum",
         "login": "Log In",
         "logout": "Log Out",
@@ -112,5 +113,29 @@
         },
         "technologiesTitle": "Technologies Used",
         "footerThanks": "We deeply thank our professors for their guidance and the Chugchilán community for their collaboration in developing this educational tool."
+    },
+    "LoginModal": {
+        "title": "Log In",
+        "emailLabel": "Email",
+        "passwordLabel": "Password",
+        "submit": "Enter",
+        "loading": "Loading...",
+        "noAccount": "Don't have an account?",
+        "registerLink": "Sign Up",
+        "defaultError": "An unexpected error occurred."
+    },
+    "RegisterModal": {
+        "title": "Create an Account",
+        "loading": "Registering...",
+        "errorRequired": "All fields are required.",
+        "success": "Registration successful! You can now log in.",
+        "registrationError": "Error registering the user.",
+        "nameLabel": "Name",
+        "emailLabel": "Email",
+        "passwordLabel": "Password",
+        "submit": "Sign Up",
+        "alreadyAccount": "Already have an account?",
+        "loginLink": "Log In",
+        "defaultError": "An unexpected error occurred."
     }
 }

@@ -44,6 +44,7 @@
         "logout": "Cerrar sesión",
         "register": "Registrarse",
         "language": "Idioma:",
+        "account": "Cuenta",
         "categories": {
             "all": "Todas",
             "medicinales": "Medicinales",
@@ -114,5 +115,28 @@
         },
         "technologiesTitle": "Tecnologías Utilizadas",
         "footerThanks": "Agradecemos profundamente a nuestros docentes por su guía y a la comunidad de Chugchilán por su colaboración en el desarrollo de esta herramienta educativa."
+    },
+    "LoginModal": {
+        "title": "Iniciar Sesión",
+        "emailLabel": "Correo Electrónico",
+        "passwordLabel": "Contraseña",
+        "submit": "Entrar",
+        "loading": "Cargando...",
+        "noAccount": "¿No tienes una cuenta?",
+        "registerLink": "Regístrate",
+        "defaultError": "Ocurrió un error inesperado."
+    },
+    "RegisterModal": {
+        "title": "Crear una Cuenta",
+        "loading": "Registrando...",
+        "errorRequired": "Todos los campos son obligatorios.",
+        "success": "¡Registro exitoso! Ahora puedes iniciar sesión.",
+        "nameLabel": "Nombre",
+        "emailLabel": "Correo Electrónico",
+        "passwordLabel": "Contraseña",
+        "submit": "Registrarse",
+        "alreadyAccount": "¿Ya tienes una cuenta?",
+        "loginLink": "Inicia sesión",
+        "defaultError": "Ocurrió un error inesperado."
     }
 }

@@ -38,6 +38,7 @@
         "plants": "Sachakuna",
         "aboutUs": "Ñukanchik",
         "recognizePlant": "Sacha riksiy",
+        "account": "Killkana",
         "addForum": "Tinkuy llankay apamuy",
         "login": "Yaykuy",
         "logout": "Llikchiy",
@@ -112,5 +113,29 @@
         },
         "technologiesTitle": "Yachaykuna Rurakushka",
         "footerThanks": "Yupaychani ñukanchik yachachikkunata. Chugchilán llaqtakunaman yupaychani kay yachay ruranakuypi yanapashkakman."
+    },
+    "LoginModal": {
+        "title": "Yaykuy",
+        "emailLabel": "Email",
+        "passwordLabel": "Contrasena",
+        "submit": "Yaykuy",
+        "loading": "Kachkan...",
+        "noAccount": "Mana cuenta kanchu?",
+        "registerLink": "Killkashkakuy",
+        "defaultError": "Mana allin error karqanmi."
+    },
+    "RegisterModal": {
+        "title": "Cuenta riksichiy",
+        "loading": "Killkashkakun...",
+        "errorRequired": "Tukuy llankinakmi riksishkakuna.",
+        "success": "¡Registro kaspi! Ahora yaykuylla kankichu.",
+        "registrationError": "Error killkashkakunapi.",
+        "nameLabel": "Suti",
+        "emailLabel": "Email",
+        "passwordLabel": "Contrasena",
+        "submit": "Killkashkakuy",
+        "alreadyAccount": "Cuenta kaspi kanki?",
+        "loginLink": "Yaykuy",
+        "defaultError": "Mana allin error karqanmi."
     }
 }

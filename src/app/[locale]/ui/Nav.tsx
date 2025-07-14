@@ -221,8 +221,7 @@ export default function Navbar() {
                                 className='bg-white text-green-600 hover:bg-green-50 px-3 sm:px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-1 sm:space-x-2 shadow-md text-sm sm:text-base'
                             >
                                 <Camera className='w-4 h-4 flex-shrink-0' />
-                                <span className='hidden xs:inline sm:inline'>Reconocer</span>
-                                <span className='hidden sm:inline'>Planta</span>
+                                <span className='hidden sm:inline'>{t('recognizePlant')}</span>
                             </Link>
 
                             {/* Botón Crear Foro (solo si está logueado) */}
@@ -244,7 +243,7 @@ export default function Navbar() {
                                 >
                                     <User className='w-4 h-4 flex-shrink-0' />
                                     <span className='hidden sm:inline text-sm'>
-                                        {user ? user.nombre : 'Account'}
+                                        {user ? user.nombre : t('account')}
                                     </span>
                                     <ChevronDown className='w-3 h-3 sm:w-4 sm:h-4' />
                                 </button>

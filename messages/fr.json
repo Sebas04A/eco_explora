@@ -38,6 +38,7 @@
         "plants": "Plantes",
         "aboutUs": "À propos",
         "recognizePlant": "Identifier une plante",
+        "account": "Compte",
         "addForum": "Ajouter au forum",
         "login": "Se connecter",
         "logout": "Se déconnecter",
@@ -112,5 +113,29 @@
         },
         "technologiesTitle": "Technologies Utilisées",
         "footerThanks": "Nous remercions profondément nos enseignants pour leur accompagnement et la communauté de Chugchilán pour leur soutien dans le développement de cet outil éducatif."
+    },
+    "LoginModal": {
+        "title": "Se connecter",
+        "emailLabel": "Email",
+        "passwordLabel": "Mot de passe",
+        "submit": "Entrer",
+        "loading": "Chargement...",
+        "noAccount": "Vous n'avez pas de compte ?",
+        "registerLink": "S’inscrire",
+        "defaultError": "Une erreur inattendue s'est produite."
+    },
+    "RegisterModal": {
+        "title": "Créer un compte",
+        "loading": "Inscription en cours...",
+        "errorRequired": "Tous les champs sont requis.",
+        "success": "Inscription réussie ! Vous pouvez maintenant vous connecter.",
+        "registrationError": "Erreur lors de l’inscription de l’utilisateur.",
+        "nameLabel": "Nom",
+        "emailLabel": "Email",
+        "passwordLabel": "Mot de passe",
+        "submit": "S’inscrire",
+        "alreadyAccount": "Vous avez déjà un compte ?",
+        "loginLink": "Se connecter",
+        "defaultError": "Une erreur inattendue s'est produite."
     }
 }
