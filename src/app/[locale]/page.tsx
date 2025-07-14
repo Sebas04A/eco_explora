@@ -18,8 +18,6 @@ export default async function HomePage() {
                         <br />
                         <br />
                         {t('ourMission')}
-                        Nuestra misión es fomentar el conocimiento botánico y promover el uso
-                        responsable y sostenible de las plantas en la vida diaria.
                     </p>
                 </div>
             </section>

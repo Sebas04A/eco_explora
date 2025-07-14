@@ -37,11 +37,18 @@ interface DecodedToken extends User {
 
 export default function Navbar() {
     const t = useTranslations('Nav')
+    // const categorias = ['Medicinales', 'Ornamentales', 'Frutales', 'Aromáticas']
+    // const categoriasTraducidas = [
+    //     t('categories.medicinales'),
+    //     t('categories.ornamentales'),
+    //     t('categories.frutales'),
+    //     t('categories.aromaticas'),
+    // ]
     const categorias = [
-        t('categories.medicinales'),
-        t('categories.ornamentales'),
-        t('categories.frutales'),
-        t('categories.aromaticas'),
+        { code: 'Medicinales', label: t('categories.medicinales') },
+        { code: 'Ornamentales', label: t('categories.ornamentales') },
+        { code: 'Frutales', label: t('categories.frutales') },
+        { code: 'Aromáticas', label: t('categories.aromáticas') },
     ]
 
     const navItems = [
@@ -182,12 +189,12 @@ export default function Navbar() {
                                             </Link>
                                             {categorias.map(cat => (
                                                 <Link
-                                                    key={cat}
-                                                    href={`/plantas/${cat}`}
+                                                    key={cat.code}
+                                                    href={`/plantas/${cat.code}`}
                                                     className='block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-200'
                                                     onClick={() => setIsPlantsMenuOpen(false)}
                                                 >
-                                                    {cat}
+                                                    {cat.label}
                                                 </Link>
                                             ))}
                                         </div>
@@ -350,12 +357,12 @@ export default function Navbar() {
                                                 </Link>
                                                 {categorias.map(cat => (
                                                     <Link
-                                                        key={cat}
-                                                        href={`/plantas/${cat}`}
+                                                        key={cat.code}
+                                                        href={`/plantas/${cat.code}`}
                                                         onClick={closeAllMenus}
                                                         className='block text-white hover:text-green-200 py-1 px-3 rounded-md hover:bg-green-700/30 transition-colors duration-200 text-sm'
                                                     >
-                                                        {cat}
+                                                        {cat.label}
                                                     </Link>
                                                 ))}
                                             </div>
