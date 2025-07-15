@@ -68,7 +68,7 @@ const Mapa = ({ plantas }: { plantas: Foro[] }) => {
     return (
         <div className='relative h-full w-full bg-red-500 z-1'>
             <div ref={mapContainer} style={{ width: '100%', height: '500px' }} />
-            <div className='absolute top-0 max-w-sm mb-4 bg-gray-200 p-5 rounded-xl shadow-md z-10 '>
+            <div className='absolute top-0 max-w-sm mb-4 bg-gray-200 p-5 rounded-xl shadow-md z-2 '>
                 <label className='block text-sm font-medium text-gray-700 mb-1'>
                     {t('filterLabel')}
                 </label>
@@ -85,7 +85,7 @@ const Mapa = ({ plantas }: { plantas: Foro[] }) => {
                     ))}
                 </select>
             </div>
-            <div className='absolute top-0 right-0 pointer'>
+            <div className='absolute top-0 right-0 pointer z-2'>
                 {plantaSeleccionada && (
                     <div className='bg-white rounded-2xl shadow-md p-4 border border-gray-200 w-full max-w-sm'>
                         <button
